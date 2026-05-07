@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Risk" name="Risk" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.46.1" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.9.0">
+  <decision id="risk-level-detection" name="Risk Level Detection">
+    <decisionTable id="DecisionTable_1of7syl">
+      <input id="Input_1" label="creditScore">
+        <inputExpression id="InputExpression_1" typeRef="number">
+          <text>creditScore</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0zhq3xr" label="loanAmount">
+        <inputExpression id="LiteralExpression_1a0fefw" typeRef="number">
+          <text>loanAmount</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="riskLevel" name="riskLevel" typeRef="string" />
+      <rule id="DecisionRule_1ppo46q">
+        <inputEntry id="UnaryTests_1jrcukl">
+          <text>&lt;500</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xz041x">
+          <text>&gt;0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1s7ly02">
+          <text>"HIGH"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kqg5nh">
+        <inputEntry id="UnaryTests_0h14rh7">
+          <text>[500..650]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0x604qc">
+          <text>&gt;50000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11dvp32">
+          <text>"HIGH"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0h7kgwz">
+        <inputEntry id="UnaryTests_0oilfkq">
+          <text>[500..650]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v7kynr">
+          <text>&lt;=50000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hpfsi6">
+          <text>"MODERATE"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06wh1pz">
+        <inputEntry id="UnaryTests_1ebeplp">
+          <text>&gt;650</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wt5wie">
+          <text>&gt;0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hy2md3">
+          <text>"LOW"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="Decision_020hkq0_di" dmnElementRef="risk-level-detection">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
