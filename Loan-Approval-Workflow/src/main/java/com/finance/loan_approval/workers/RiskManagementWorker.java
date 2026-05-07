@@ -1,3 +1,14 @@
+/*
+ * This worker was used in the earlier version of the workflow
+ * where risk level was calculated directly in Java.
+ *
+ * The current BPMN flow uses a DMN decision table for risk evaluation,
+ * so this worker is not actively used by the process.
+ *
+ * Kept here for learning/reference to compare Java-based logic
+ * versus DMN-based business rules.
+ */
+
 package com.finance.loan_approval.workers;
 
 import java.util.Map;
